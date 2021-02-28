@@ -1,7 +1,8 @@
 use crate::primes::*;
 
+// Math I used: b has to be a +ve prime (n = 0)
+
 pub fn run() {
-    // Math I used: b has to be a +ve prime (n = 0)
     let mut prime_tools = PrimeTools::new();
 
     // Needed 2 mut references to prime_tools, one to iter and one for max_primes, and that doesn't work, so just
