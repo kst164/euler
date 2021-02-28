@@ -1,4 +1,4 @@
-use crate::primes::*;
+use crate::primes::PrimeTools;
 
 // Math I used: b has to be a +ve prime (n = 0)
 
