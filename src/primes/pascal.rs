@@ -1,6 +1,7 @@
+// TODO: Put it in a lib later
 // Used it once, maybe in a lib later
 
-fn pascal() {
+fn pascal_triangle() {
     let mut pascal: Vec<Vec<u16>> = vec![vec![1]];
     let num_rows = 15;
 

@@ -1,6 +1,6 @@
 #![allow(dead_code)]
-mod problems;
 mod primes;
+mod problems;
 
 fn main() {
     problems::run();

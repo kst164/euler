@@ -17,16 +17,35 @@ use std::collections::{BTreeMap, BTreeSet};
 
 pub struct PrimeTools {
     primes: Vec<u64>,
-    iterator_pos: usize
+    iterator_pos: usize,
 }
 
-impl Iterator for PrimeTools {
+pub struct PrimeIterator<'a> {
+    pt: &'a mut PrimeTools,
+    pos: usize,
+}
+
+impl<'a> Iterator for PrimeIterator<'a> {
     type Item = u64;
 
-    fn next (&mut self) -> Option<u64> {
+    fn next(&mut self) -> Option<u64> {
+        self.pos += 1;
+
+        Some(self.pt.get_prime(&(self.pos - 1)))
+    }
+}
+
+impl<'a> IntoIterator for &'a mut PrimeTools {
+    type Item = u64;
+    type IntoIter = PrimeIterator<'a>;
+
+    fn into_iter(self) -> Self::IntoIter {
         self.iterator_pos += 1;
 
-        Some(self.get_prime(&(self.iterator_pos - 1)))
+        PrimeIterator {
+            pt: self,
+            pos: 0
+        }
     }
 }
 
@@ -34,21 +53,33 @@ impl PrimeTools {
     pub fn new() -> PrimeTools {
         PrimeTools {
             primes: vec![2, 3],
-            iterator_pos: 0
+            iterator_pos: 0,
+        }
+    }
+
+    pub fn iter_primes(&mut self) -> PrimeIterator {
+        PrimeIterator {
+            pt: self,
+            pos: 0,
         }
     }
 
     pub fn get_prime(&mut self, n: &usize) -> u64 {
-        self.fill_n_primes(n);
+        // To get index n, need n+1 primes
+        self.fill_n_primes(&(*n + 1));
 
         self.primes[*n]
     }
 
     pub fn is_prime(&mut self, n: &u64) -> bool {
-
-        self.fill_primes_upto(n);
+        // Fill primes till square root of n
+        let sqrt_n: u64 = (*n as f64).sqrt().floor() as u64;
+        self.fill_primes_upto(&sqrt_n);
 
         for p in self.primes.iter() {
+            if p > &sqrt_n {
+                return true;
+            }
             if n % p == 0 {
                 return false;
             }
@@ -58,7 +89,6 @@ impl PrimeTools {
     }
 
     pub fn prime_factorization(&mut self, n: &u64) -> BTreeMap<u64, usize> {
-        //
         // Fill primes till square root of n
         let sqrt_n: u64 = (*n as f64).sqrt().floor() as u64;
         self.fill_primes_upto(&sqrt_n);
@@ -162,10 +192,8 @@ impl PrimeTools {
     }
 
     fn fill_n_primes(&mut self, n: &usize) {
-        if self.primes.len() < *n {
-            while self.primes.len() < *n {
-                self.add_prime();
-            }
+        while self.primes.len() < *n {
+            self.add_prime();
         }
     }
 
@@ -189,7 +217,7 @@ impl PrimeTools {
     }
 }
 
-fn get_num(primes: &Vec<u64>, exps: &Vec<usize>) -> u64{
+fn get_num(primes: &Vec<u64>, exps: &Vec<usize>) -> u64 {
     // Converts prime factorisation to a number
 
     let mut num: u64 = 1;
@@ -200,4 +228,3 @@ fn get_num(primes: &Vec<u64>, exps: &Vec<usize>) -> u64{
 
     num
 }
-

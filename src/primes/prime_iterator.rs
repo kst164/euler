@@ -1,13 +1,13 @@
 pub struct PrimeIterator {
     primes: Vec<u64>,
-    iterator_pos: usize
+    iterator_pos: usize,
 }
 
 impl PrimeIterator {
     pub fn new() -> PrimeIterator {
         PrimeIterator {
             primes: vec![2, 3],
-            iterator_pos: 0
+            iterator_pos: 0,
         }
     }
 
@@ -18,7 +18,7 @@ impl PrimeIterator {
     }
 
     pub fn get_prime(&mut self, n: &usize) -> u64 {
-        while self.primes.len() <= *n{
+        while self.primes.len() <= *n {
             self.add_prime();
         }
 
