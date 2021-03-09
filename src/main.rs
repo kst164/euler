@@ -3,5 +3,5 @@ mod primes;
 mod problems;
 
 fn main() {
-    problems::run();
+    problems::p036::run();
 }

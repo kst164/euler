@@ -1,2 +1,3 @@
-mod p030;
-pub use p030::run;
+extern crate automod;
+
+automod::dir!(pub "src/problems");
