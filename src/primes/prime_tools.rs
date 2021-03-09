@@ -72,6 +72,12 @@ impl PrimeTools {
     }
 
     pub fn is_prime(&mut self, n: &u64) -> bool {
+
+        // Special case: 1 isn't prime
+        if *n == 1 {
+            return false;
+        }
+
         // Fill primes till square root of n
         let sqrt_n: u64 = (*n as f64).sqrt().floor() as u64;
         self.fill_primes_upto(&sqrt_n);
