@@ -5,7 +5,7 @@ use std::collections::BTreeSet;
 pub fn run() {
     let mut file = File::open("data/p022.txt").unwrap();
     let mut file_string = String::new();
-    file.read_to_string(&mut file_string);
+    file.read_to_string(&mut file_string).unwrap();
 
     let mut names = BTreeSet::new();
 
