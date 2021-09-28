@@ -31,10 +31,10 @@ pub fn run() {
             let mut products: [u32; 4] = [1; 4];
 
             for i in 0..PRODUCT_LENGTH {
-                products[0] *= nums[row + i][col];                              // Vertical
-                products[1] *= nums[row][col + i];                              // Horizontal
-                products[2] *= nums[row + i][col + i];                          // Diagonal
-                products[3] *= nums[row + i][col + PRODUCT_LENGTH - i - 1];     // Other diagonal
+                products[0] *= nums[row + i][col]; // Vertical
+                products[1] *= nums[row][col + i]; // Horizontal
+                products[2] *= nums[row + i][col + i]; // Diagonal
+                products[3] *= nums[row + i][col + PRODUCT_LENGTH - i - 1]; // Other diagonal
             }
 
             for product in products.iter() {
@@ -42,7 +42,6 @@ pub fn run() {
                     max_product = *product;
                 }
             }
-
         }
     }
 

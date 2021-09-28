@@ -22,9 +22,9 @@ pub fn run() {
             }
             if (9 * a * c) % (10 * a - c) == 0 {
                 let b = 9 * a * c / (10 * a - c);
-                
+
                 if b < 10 {
-                    println!("{a}{b} / {b}{c} = {a}/{c}", a=a, b=b, c=c);
+                    println!("{a}{b} / {b}{c} = {a}/{c}", a = a, b = b, c = c);
                 }
             }
         }

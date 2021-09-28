@@ -10,8 +10,6 @@ pub fn run() {
     println!("{}", count(TOTAL, 0, &mut coin_counts));
 }
 
-
-
 fn count(in_hand: usize, depth: usize, coin_counts: &mut [usize]) -> usize {
     if depth == COIN_COUNT - 1 {
         coin_counts[depth] = in_hand;
@@ -32,5 +30,3 @@ fn count(in_hand: usize, depth: usize, coin_counts: &mut [usize]) -> usize {
 
     this_count
 }
-
-

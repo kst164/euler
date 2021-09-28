@@ -40,7 +40,6 @@ fn factorize(n: u64) {
     }
 }
 
-
 // Original implementation, before primes lib
 
 /*pub fn run1() {

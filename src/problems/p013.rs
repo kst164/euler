@@ -121,5 +121,4 @@ pub fn run() {
     }
 
     println!("{}", &sum.to_str_radix(10)[..10]);
-
 }

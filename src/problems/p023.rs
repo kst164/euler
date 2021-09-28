@@ -1,5 +1,5 @@
-use std::collections::BTreeSet;
 use crate::primes::PrimeTools;
+use std::collections::BTreeSet;
 
 pub fn run() {
     let mut abundant_nums = vec![];
@@ -12,7 +12,6 @@ pub fn run() {
             abundant_nums.push(n);
         }
     }
-
 
     let mut abundant_sum_set = BTreeSet::new();
 

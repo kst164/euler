@@ -7,13 +7,12 @@ use std::collections::BTreeSet;
 //  All other numbers that aren't powers of these numbers will give 99 entries each (42, 31, etc)
 
 pub fn run() {
-
     let p2 = power_count(2);
     let p3 = power_count(3);
     let p5 = power_count(5);
 
-    let ans = p2 + p3 + 4*p5 + 99*(99 - 6 - 4 - 4*2); // 6 for 2^b, 4 for 3^b, 2 each for {5, 6, 7, 10}^b
-    
+    let ans = p2 + p3 + 4 * p5 + 99 * (99 - 6 - 4 - 4 * 2); // 6 for 2^b, 4 for 3^b, 2 each for {5, 6, 7, 10}^b
+
     println!("{}", ans);
 }
 

@@ -33,7 +33,11 @@ pub fn run() {
 }
 
 fn is_leap_year(year: &u16) -> bool {
-    if year % 4 != 0 { return false; }
-    if year % 400 == 0 { return true; }
+    if year % 4 != 0 {
+        return false;
+    }
+    if year % 400 == 0 {
+        return true;
+    }
     return year % 100 != 0;
 }

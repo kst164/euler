@@ -30,7 +30,7 @@ fn is_2k_digit_palindrome(n: &u32, k: u8) -> bool {
         return false;
     }
 
-    let ten_to_the_2k_minus_1: u32 = (10u32).pow((2*k - 1) as u32) as u32;
+    let ten_to_the_2k_minus_1: u32 = (10u32).pow((2 * k - 1) as u32) as u32;
     let first_digit = n / ten_to_the_2k_minus_1;
 
     if n % 10 == first_digit {

@@ -1,6 +1,18 @@
 use std::collections::BTreeSet;
 
-static POWERS: &[u64; 11] = &[1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000, 10000000000];
+static POWERS: &[u64; 11] = &[
+    1,
+    10,
+    100,
+    1000,
+    10000,
+    100000,
+    1000000,
+    10000000,
+    100000000,
+    1000000000,
+    10000000000,
+];
 
 pub fn run() {
     let mut max = 0;
@@ -29,9 +41,11 @@ fn get_pandigital_num(n: u64) -> Option<u64> {
         while multiple > 0 {
             let last_dig = multiple % 10;
 
-            if last_dig == 0 {                          // 0 isn't allowed
+            if last_dig == 0 {
+                // 0 isn't allowed
                 return None;
-            } else if !covered_digs.insert(last_dig) {  // Checking that digit is new (insert returns false if element is already in set)
+            } else if !covered_digs.insert(last_dig) {
+                // Checking that digit is new (insert returns false if element is already in set)
                 return None;
             }
 
@@ -44,8 +58,6 @@ fn get_pandigital_num(n: u64) -> Option<u64> {
         if covered_digs.len() == 9 {
             return Some(pan_num);
         }
-
-        // TODO
     }
     None
 }
@@ -54,7 +66,6 @@ fn get_pandigital_num(n: u64) -> Option<u64> {
 // and anything more than 10 digits is a 11 digit number,
 // but that doesn't really matter here
 fn digit_count(n: u64) -> usize {
-
     for i in 0..POWERS.len() {
         if n < POWERS[i] {
             return i;

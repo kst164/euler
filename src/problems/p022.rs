@@ -1,6 +1,6 @@
+use std::collections::BTreeSet;
 use std::fs::File;
 use std::io::Read;
-use std::collections::BTreeSet;
 
 pub fn run() {
     let mut file = File::open("data/p022.txt").unwrap();
@@ -41,7 +41,7 @@ pub fn run() {
     println!("{}", total_score);
 }
 
-fn get_score(s: &String) -> usize{
+fn get_score(s: &String) -> usize {
     let mut score = 0;
     for &c in s.as_bytes().iter() {
         score += c as usize - 'A' as usize + 1; // +1 because A is 1

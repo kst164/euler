@@ -6,7 +6,7 @@ pub fn run() {
     }
 }
 
-fn factorial(n: u32) -> u32{
+fn factorial(n: u32) -> u32 {
     let mut fact = 1;
 
     for k in 2..=n {
@@ -16,7 +16,7 @@ fn factorial(n: u32) -> u32{
     fact
 }
 
-fn factorial_sum(mut n: u32) -> u32{
+fn factorial_sum(mut n: u32) -> u32 {
     let mut sum = 0;
 
     while n > 0 {

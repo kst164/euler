@@ -44,14 +44,14 @@ fn get_num(digits: &Vec<u64>, offset: usize) -> u64 {
 
 fn is_circular_prime(digits: &Vec<u64>, pt: &mut PrimeTools) -> bool {
     // Takes digits if number instead of number itself
-    
+
     // Iterate through all cyclic numbers
     // Offset decides which digit is the first num
     for offset in 0..digits.len() {
         let num = get_num(digits, offset);
 
         if !pt.is_prime(&num) {
-            return false
+            return false;
         }
     }
 

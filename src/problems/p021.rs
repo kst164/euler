@@ -14,7 +14,9 @@ pub fn run() {
 
     for n in 1..10000 {
         if let Some(d_n) = d_values.remove(&n) {
-            if d_n >= 10000 { continue };
+            if d_n >= 10000 {
+                continue;
+            };
 
             if let Some(d_d_n) = d_values.remove(&d_n) {
                 if n == d_d_n {
@@ -23,7 +25,6 @@ pub fn run() {
                 }
             }
         }
-
     }
 
     println!("{:?}", amicable_nums);
@@ -37,13 +38,13 @@ pub fn run() {
 }
 
 struct Thing {
-    prime_tools: PrimeTools
+    prime_tools: PrimeTools,
 }
 
 impl Thing {
     fn new() -> Thing {
         Thing {
-            prime_tools: PrimeTools::new()
+            prime_tools: PrimeTools::new(),
         }
     }
 
@@ -62,7 +63,9 @@ impl Thing {
 
     // First approach. Also works, but iterates through every factor, so slower
     fn d1(&mut self, n: &u64) -> u64 {
-        if *n == 1 { return 0 };
+        if *n == 1 {
+            return 0;
+        };
         let factors = self.prime_tools.prime_factorization(&n);
 
         let primes: Vec<u64> = factors.keys().cloned().collect();
@@ -94,7 +97,7 @@ impl Thing {
     }
 }
 
-fn get_num(primes: &Vec<u64>, exps: &Vec<usize>) -> u64{
+fn get_num(primes: &Vec<u64>, exps: &Vec<usize>) -> u64 {
     let mut num: u64 = 1;
 
     for i in 0..primes.len() {
