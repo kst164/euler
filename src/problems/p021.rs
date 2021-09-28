@@ -38,7 +38,7 @@ pub fn run() {
 }
 
 struct Thing {
-    prime_tools: PrimeTools,
+    prime_tools: PrimeTools<u64>,
 }
 
 impl Thing {

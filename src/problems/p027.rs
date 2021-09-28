@@ -35,7 +35,7 @@ pub fn run() {
     println!("{} {} {}", max, max_ab.0, max_ab.1);
 }
 
-fn max_primes(a: i64, b: i64, prime_tools: &mut PrimeTools) -> i64 {
+fn max_primes(a: i64, b: i64, prime_tools: &mut PrimeTools<u64>) -> i64 {
     for n in 0.. {
         let f_n = f(a, b, n);
         if f_n <= 0 {

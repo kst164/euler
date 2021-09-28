@@ -24,7 +24,7 @@ pub fn run() {
     println!("sum: {}", sum);
 }
 
-fn is_truncatable(p: u64, pt: &mut PrimeTools) -> bool {
+fn is_truncatable(p: u64, pt: &mut PrimeTools<u64>) -> bool {
     let mut prime = p;
     let mut reverse = 0;
     let mut dig_count = 0;

@@ -8,4 +8,5 @@ edition = "2018"
 
 [dependencies]
 num-bigint = "0.3"
-automod = "1.0"
+
+primes = { path = "../primes" }

@@ -42,7 +42,7 @@ fn get_num(digits: &Vec<u64>, offset: usize) -> u64 {
     num
 }
 
-fn is_circular_prime(digits: &Vec<u64>, pt: &mut PrimeTools) -> bool {
+fn is_circular_prime(digits: &Vec<u64>, pt: &mut PrimeTools<u64>) -> bool {
     // Takes digits if number instead of number itself
 
     // Iterate through all cyclic numbers
